@@ -6,13 +6,13 @@ name = "pypi"
 [packages]
 pytest = "*"
 fitbit = "*"
-bcrypt = "*"
 pytest-mock = "*"
 slack-sdk = "*"
 python-dotenv = "*"
 Flask = ">=1.1.2"
 Flask-SQLAlchemy = "*"
 Flask-APScheduler = "*"
+zappa = "*"
 
 [dev-packages]
 

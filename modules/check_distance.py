@@ -15,8 +15,6 @@ class CheckDistanceJob:
         for user in app.User.query.all():
             if not user.client_id or not user.client_secret or not user.access_token or not user.refresh_token or not user.target_distance:
                 continue
-            if cls._has_already_called_today(user.updated_at):
-                continue
             
             auth2_client = fitbit.Fitbit(user.client_id, user.client_secret, oauth2=True, access_token=user.access_token, refresh_token=user.refresh_token)
             JST = timezone(timedelta(hours=+9), 'JST')
@@ -30,8 +28,6 @@ class CheckDistanceJob:
             kms = cls._convert_km(fit_stats_distance['activities-distance'][0]['value'])
             if cls._is_over_target_distance(kms, user.target_distance):
                 cls._send_message_to_slack(user, kms)
-                user.updated_at = datetime.now()
-                app.db.session.commit()
        
         print('updated!')
         return 'updated!'
@@ -43,10 +39,6 @@ class CheckDistanceJob:
     def _is_over_target_distance(kms, target_distance):
         return  kms > target_distance
 
-    def _has_already_called_today(updated_at):
-        today = datetime.combine(date.today(), datetime.min.time())
-        return updated_at >= today
-    
     def _send_invalid_token_message_to_slack(user):
         client = WebClient(token=os.environ['SLACK_BOT_TOKEN'])
         try:            
