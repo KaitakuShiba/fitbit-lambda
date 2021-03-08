@@ -20,11 +20,8 @@ scheduler = APScheduler()
 scheduler.init_app(app)
 scheduler.start()
 
-@app.route("/", methods=["GET"])
-def hello():
-    return 'hello'
-
-@scheduler.task('interval', id='check_distance_job', seconds=10_800, misfire_grace_time=900)
+# for 23:50 on JST
+@scheduler.task('interval', id='check_distance_job', hour=14, minute=50)
 def check_distance_job():
     return CheckDistanceJob().call()
 
