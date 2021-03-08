@@ -4,6 +4,7 @@
 
 ## Overview
 Notifier fitbit's activity info for AWS Lambda, deploying zappa.
+with management, https://github.com/KaitakuShiba/fitbit.
 
 ## Premise
 - Requirement fitbit.db file and set environment variable for AWS Lambda.
