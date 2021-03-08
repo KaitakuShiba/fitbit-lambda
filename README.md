@@ -3,7 +3,7 @@
 - Flask 1.1.2
 
 ## Overview
-Notifier fitbit's activity info for AWS Lambda. Use zappa
+Notifier fitbit's activity info for AWS Lambda, deploying zappa.
 
 ## Premise
 - Requirement fitbit.db file and set environment variable for AWS Lambda.
@@ -34,7 +34,7 @@ After zappa init, update setting.
         ..
         "events": [{
             "function": "app.check_distance_job",
-            "expression": "cron(15 10 * * ? *)"
+            "expression": "cron(50 14 * * ? *)"
         }],
         "keep_warm": false
     }
