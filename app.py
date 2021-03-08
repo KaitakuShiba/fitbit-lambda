@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from modules.check_distance import CheckDistanceJob
-from flask_apscheduler import APScheduler
 from datetime import datetime
 import os, re
 
@@ -15,13 +14,6 @@ app.config.update(
 )
 
 db = SQLAlchemy(app)
-
-scheduler = APScheduler()
-scheduler.init_app(app)
-scheduler.start()
-
-# for 23:50 on JST
-@scheduler.task('interval', id='check_distance_job', hour=14, minute=50)
 def check_distance_job():
     return CheckDistanceJob().call()
 

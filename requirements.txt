@@ -4,6 +4,5 @@ fitbit
 Flask-SQLAlchemy
 pytest-mock
 slack_sdk
-flask_apscheduler
 python-dotenv
 zappa
