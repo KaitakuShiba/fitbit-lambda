@@ -5,9 +5,7 @@ from datetime import datetime, date, timedelta, timezone
 
 class CheckDistanceJob:
     @classmethod
-    def call(cls):    
-        print('starting job..')
-
+    def call(cls):
         if not os.environ.get('SLACK_CHANNEL') or not os.environ.get('SLACK_BOT_TOKEN'):
             print('not setting env')
             return
@@ -29,7 +27,6 @@ class CheckDistanceJob:
             if cls._is_over_target_distance(kms, user.target_distance):
                 cls._send_message_to_slack(user, kms)
        
-        print('updated!')
         return 'updated!'
 
     def _convert_km(str_miles):
