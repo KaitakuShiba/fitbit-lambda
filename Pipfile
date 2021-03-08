@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pytest = "*"
+fitbit = "*"
+bcrypt = "*"
+pytest-mock = "*"
+slack-sdk = "*"
+python-dotenv = "*"
+Flask = ">=1.1.2"
+Flask-SQLAlchemy = "*"
+Flask-APScheduler = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

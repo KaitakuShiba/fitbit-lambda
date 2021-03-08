@@ -1,0 +1,7 @@
+Flask>=1.1.2
+fitbit
+bcrypt
+Flask-SQLAlchemy
+slack_sdk
+flask_apscheduler
+python-dotenv

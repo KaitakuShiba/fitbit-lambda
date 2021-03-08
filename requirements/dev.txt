@@ -1,0 +1,9 @@
+Flask>=1.1.2
+pytest
+fitbit
+bcrypt
+Flask-SQLAlchemy
+pytest-mock
+slack_sdk
+flask_apscheduler
+python-dotenv
