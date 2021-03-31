@@ -2,3 +2,4 @@ fitbit.db
 .env
 var/log/*.log
 zappa_settings.json
+.DS_Store
