@@ -30,8 +30,9 @@ class CheckDistanceJob:
         return 'updated!'
 
     def _convert_km(str_miles):
-        conv_fac = 0.621371
-        return float(str_miles) / conv_fac
+        COV_FAC = 0.621371
+        kms = float(str_miles) / COV_FAC
+        return round(kms, 2)
     
     def _is_over_target_distance(kms, target_distance):
         return  kms > target_distance
@@ -47,7 +48,7 @@ class CheckDistanceJob:
     def _send_message_to_slack(user, kms):
         client = WebClient(token=os.environ['SLACK_BOT_TOKEN'])
         try:            
-            text = f'{user.name}さんが目標距離: {user.target_distance}kmを達成しました。現在の距離: {round(kms, 2)}km :100::woman-running::runner::man-running::skin-tone-3:'
+            text = f'{user.name}さんが目標距離: {user.target_distance}kmを達成しました。現在の距離: {kms}km :100::woman-running::runner::man-running::skin-tone-3:'
             client.chat_postMessage(channel=os.environ['SLACK_CHANNEL'], text=text)
         except SlackApiError as e:
             print(f"Got an error: {e.response['error']}")
