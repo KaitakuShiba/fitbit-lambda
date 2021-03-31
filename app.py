@@ -27,13 +27,17 @@ class User(db.Model):
     target_distance = db.Column(db.Integer, nullable=True)
     access_token = db.Column(db.Text, nullable=True)
     refresh_token = db.Column(db.String, nullable=True)
+    pixela_user_name = db.Column(db.String, nullable=False, default='')
+    pixela_user_token = db.Column(db.Text, nullable=False, default='')
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now(), onupdate=datetime.now())
 
-    def __init__(self, name, client_id, client_secret, target_distance=None, access_token=None, refresh_token=None):
+    def __init__(self, name, client_id, client_secret, target_distance=None, access_token=None, refresh_token=None, pixela_user_name=None, pixela_user_token=None):
         self.name = name
         self.client_id = client_id
         self.client_secret = client_secret
         self.target_distance = target_distance
         self.access_token = access_token
         self.refresh_token = refresh_token
+        self.pixela_user_name = pixela_user_name
+        self.pixela_user_token = pixela_user_token
