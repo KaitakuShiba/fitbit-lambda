@@ -49,3 +49,16 @@ CLIENT_ID = ''
 CLIENT_SECRET = ''
 SECRET_KEY = ''
 ```
+
+## For Pixela
+ref: https://docs.pixe.la
+```bash
+# create user
+curl -X POST https://pixe.la/v1/users -d '{"token":"token", "username":"username", "agreeTermsOfService":"yes", "notMinor":"yes"}'
+
+# create graph
+curl -X POST https://pixe.la/v1/users/username/graphs -H 'X-USER-TOKEN: token' -d '{"id":"grassgraph","name":"run-graph","unit":"achievement_rate","type":"int","color":"shibafu"}'
+
+# check create graph
+https://pixe.la/v1/users/username/graphs/grassgraph.html
+```
