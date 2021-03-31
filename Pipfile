@@ -12,6 +12,7 @@ python-dotenv = "*"
 Flask = ">=1.1.2"
 Flask-SQLAlchemy = "*"
 zappa = "*"
+requests = ">=2.25"
 
 [dev-packages]
 
