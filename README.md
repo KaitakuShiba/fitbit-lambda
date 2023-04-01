@@ -63,8 +63,5 @@ curl -X POST https://pixe.la/v1/users/username/graphs -H 'X-USER-TOKEN: token' -
 https://pixe.la/v1/users/username/graphs/grassgraph.html
 ```
 
-## Slack
-<img width="683" alt="スクリーンショット 2023-04-01 14 24 10" src="https://user-images.githubusercontent.com/38932286/229267244-6b4ae965-d44d-4602-8211-6ab9425666d7.png">
-
-
-
+## Slack Notify Example
+<img width="683" alt="スクリーンショット 2023-04-01 14 24 10" src="https://user-images.githubusercontent.com/38932286/229267316-49de2b5f-a858-40db-9ed6-8cfc2eb01fd4.png">
